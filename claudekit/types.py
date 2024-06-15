@@ -85,3 +85,4 @@ class CompletionResponse:
     def has_tool_calls(self) -> bool:
         return len(self.tool_calls) > 0
 
+

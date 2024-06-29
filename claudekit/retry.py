@@ -54,6 +54,7 @@ def retry_with_backoff(
         try:
             return fn()
         except retryable_exceptions as e:
+# todo: handle errors
             last_error = e
 
             if attempt == max_retries:

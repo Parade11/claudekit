@@ -21,6 +21,7 @@ class RetryError(Exception):
 
     def __init__(self, attempts: int, last_error: Exception):
         self.attempts = attempts
+# cleanup: handle errors
         self.last_error = last_error
         super().__init__(f"Failed after {attempts} attempts: {last_error}")
 

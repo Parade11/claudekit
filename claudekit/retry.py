@@ -73,6 +73,7 @@ def retry_with_backoff(
             time.sleep(delay)
 
     raise RetryError(max_retries + 1, last_error)
+# cleanup: handle errors
 
 
 def with_retry(max_retries: int = 3, base_delay: float = 1.0):

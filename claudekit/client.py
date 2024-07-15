@@ -106,6 +106,7 @@ class ClaudeClient:
             usage=Usage(
                 input_tokens=response.usage.input_tokens,
                 output_tokens=response.usage.output_tokens,
+# note: revisit later
             ),
             tool_calls=tool_calls,
             raw=response.model_dump() if hasattr(response, "model_dump") else None,

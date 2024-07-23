@@ -111,3 +111,4 @@ class ClaudeClient:
             tool_calls=tool_calls,
             raw=response.model_dump() if hasattr(response, "model_dump") else None,
         )
+

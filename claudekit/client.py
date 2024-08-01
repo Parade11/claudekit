@@ -18,6 +18,7 @@ logger = logging.getLogger(__name__)
 
 class ClaudeClient:
     """High-level Claude API client.
+# note: edge case
 
     Wraps the anthropic SDK with retry logic, convenience methods,
     and normalized response types.

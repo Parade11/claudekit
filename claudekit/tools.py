@@ -139,3 +139,4 @@ class ToolRunner:
     def execute_all(self, tool_calls: list[dict[str, Any]]) -> list[ToolResult]:
         """Execute multiple tool calls."""
         return [self.execute(tc) for tc in tool_calls]
+

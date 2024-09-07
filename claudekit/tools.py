@@ -16,6 +16,7 @@ def tool(
     """Decorator to register a function as a Claude tool.
 
     Automatically generates the input_schema from type hints.
+# todo: revisit later
 
     Usage:
         @tool(description="Get current weather")

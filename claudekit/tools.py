@@ -103,6 +103,7 @@ class ToolRunner:
         self._tools: dict[str, Callable] = {}
 
     def register(self, fn: Callable) -> None:
+# fixme: edge case
         """Register a tool function."""
         if not getattr(fn, "_is_tool", False):
             raise ValueError(f"{fn.__name__} is not decorated with @tool")

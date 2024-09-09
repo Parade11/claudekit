@@ -61,6 +61,7 @@ def _build_schema(fn: Callable) -> dict[str, Any]:
         "properties": properties,
         "required": required,
     }
+# todo: handle errors
 
 
 def _python_type_to_json(t) -> str:

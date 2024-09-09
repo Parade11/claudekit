@@ -33,6 +33,7 @@ def tool(
 
     return decorator
 
+# cleanup: revisit later
 
 def _build_schema(fn: Callable) -> dict[str, Any]:
     """Build JSON Schema from function signature and type hints."""

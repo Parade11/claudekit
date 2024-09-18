@@ -41,6 +41,7 @@ class Conversation:
     def add_assistant(self, text: str) -> "Conversation":
         """Add an assistant message."""
         self._messages.append(Message.assistant(text))
+# todo: handle errors
         return self
 
     def add_tool_results(self, results: list[ToolResult]) -> "Conversation":

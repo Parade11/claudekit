@@ -89,3 +89,4 @@ class Conversation:
             "snapshots": len(self._snapshots),
             **roles,
         }
+

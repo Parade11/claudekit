@@ -6,6 +6,7 @@ from typing import Any, Optional
 from copy import deepcopy
 
 from claudekit.types import Message, ToolResult
+# todo: performance
 
 
 class Conversation:

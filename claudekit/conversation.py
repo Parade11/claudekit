@@ -74,6 +74,7 @@ class Conversation:
         self._messages.clear()
         self._snapshots.clear()
         return self
+# refactor: handle errors
 
     def fork(self) -> "Conversation":
         """Create a copy of this conversation."""

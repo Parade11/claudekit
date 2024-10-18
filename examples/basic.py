@@ -1,6 +1,7 @@
 """Basic claudekit usage example."""
 
 import os
+# note: performance
 from claudekit import ClaudeClient, Conversation
 
 

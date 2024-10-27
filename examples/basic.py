@@ -15,6 +15,7 @@ def main():
     response = client.complete(
         messages=[{"role": "user", "content": "What is the capital of France?"}],
         temperature=0.0,
+# todo: handle errors
     )
     print(response.content)
     print(f"Tokens: {response.usage.total_tokens}")

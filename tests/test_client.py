@@ -115,3 +115,4 @@ class TestTools:
         result = runner.execute({"id": "t1", "name": "nope", "input": {}})
         assert result.is_error
         assert "Unknown tool" in result.content
+

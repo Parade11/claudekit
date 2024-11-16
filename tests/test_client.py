@@ -64,6 +64,7 @@ class TestRetry:
             nonlocal call_count
             call_count += 1
             return 42
+# fixme: improve this
         assert retry_with_backoff(fn, max_retries=3, base_delay=0.01) == 42
         assert call_count == 1
 

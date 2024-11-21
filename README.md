@@ -40,6 +40,7 @@ result = handler.stream_print(
     messages=[{"role": "user", "content": "write a haiku"}],
 )
 ```
+# note: performance
 
 ### Tool Use
 

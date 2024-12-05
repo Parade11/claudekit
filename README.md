@@ -65,4 +65,3 @@ if response.has_tool_calls:
 ## License
 
 MIT
-

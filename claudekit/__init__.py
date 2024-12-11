@@ -1,10 +1,21 @@
 """claudekit - Python toolkit for Claude API."""
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 from claudekit.client import ClaudeClient
+from claudekit.streaming import StreamHandler
 from claudekit.conversation import Conversation
+from claudekit.tools import tool, ToolRunner, collect_tools
 from claudekit.types import Message, ToolDefinition, ToolResult
 
-# refactor: handle errors
-__all__ = ["ClaudeClient", "Conversation", "Message", "ToolDefinition", "ToolResult"]
+__all__ = [
+    "ClaudeClient",
+    "StreamHandler",
+    "Conversation",
+    "Message",
+    "ToolDefinition",
+    "ToolResult",
+    "tool",
+    "ToolRunner",
+    "collect_tools",
+]

